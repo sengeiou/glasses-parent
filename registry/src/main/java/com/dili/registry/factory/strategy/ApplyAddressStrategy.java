@@ -22,7 +22,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  **/
 @Service
 @Slf4j
-public class ApplyAddressStrategy extends BaseStrategy<ApplyAddressRequestProtocol> {
+public class ApplyAddressStrategy implements ProtocolExecStrategy<ApplyAddressRequestProtocol> {
 
     private final RegistryNettyConfig registryNettyConfig;
 
@@ -46,7 +46,6 @@ public class ApplyAddressStrategy extends BaseStrategy<ApplyAddressRequestProtoc
             }
         }
         if (address != null) {
-
             NettyConstant.SERVER_CACHE.put(address, NettyConstant.SERVER_CACHE.get(address));
             long startTime = DateUtils.formatDateStr2Date("2018-01-01 00:00:00").getTime();
 
@@ -69,14 +68,14 @@ public class ApplyAddressStrategy extends BaseStrategy<ApplyAddressRequestProtoc
             hostPort[4] = portBytes[0];
             hostPort[5] = portBytes[1];
 
-            ApplyAddressResponseProtocol responseProtocol = new ApplyAddressResponseProtocol(protocol.getTerminalId(), protocol.getCmd(), terminalTime, hostPort);
+            ApplyAddressResponseProtocol responseProtocol = new ApplyAddressResponseProtocol();
 
-            context.writeAndFlush(responseProtocol.toByteArray());
+            context.writeAndFlush(responseProtocol.toString());
         }
     }
 
     @Override
-    public Class<ApplyAddressRequestProtocol> getRequestProtocolClass() {
-        return ApplyAddressRequestProtocol.class;
+    public String getType() {
+        return "01";
     }
 }

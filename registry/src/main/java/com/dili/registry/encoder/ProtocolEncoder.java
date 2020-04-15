@@ -1,21 +1,24 @@
 package com.dili.registry.encoder;
 
+import com.dili.registry.consts.NettyConstant;
 import com.dili.registry.domain.GlassesProtocol;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 
+import java.io.UnsupportedEncodingException;
+
 public class ProtocolEncoder extends MessageToByteEncoder<GlassesProtocol> {
 
     @Override
     protected void encode(ChannelHandlerContext tcx, GlassesProtocol msg,
-                          ByteBuf out) {
-        // 写入消息的具体内容
-        // 1.写入消息的开头的信息标志(int类型)
-        out.writeShort(msg.getStx());
-        // 2.写入消息的长度(int 类型)
-        out.writeShort(msg.getLength());
-        // 3.写入消息的内容(byte[]类型)
-        out.writeBytes(msg.getContent());
+                          ByteBuf out) throws UnsupportedEncodingException {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[").append(msg.getType()).append(",")
+                .append(msg.getImei()).append(",")
+                .append(msg.getLength()).append(",")
+                .append(msg.getData()).append(",")
+                .append(msg.getCrc()).append("]");
+        out.writeBytes(sb.toString().getBytes(NettyConstant.CHARSET));
     }
 }

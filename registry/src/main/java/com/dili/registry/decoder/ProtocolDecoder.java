@@ -39,62 +39,25 @@ public class ProtocolDecoder extends ByteToMessageDecoder {
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf buffer,
                           List<Object> out) throws Exception {
-        // 可读长度必须大于基本长度
-        if (buffer.readableBytes() >= BASE_LENGTH) {
-            // 防止socket字节流攻击
-            // 防止，客户端传来的数据过大
-            // 因为，太大的数据，是不合理的
-            if (buffer.readableBytes() > 4096) {
-                buffer.skipBytes(buffer.readableBytes());
-            }
-
-            // 记录包头开始的index
-            int beginReader;
-
-            while (true) {
-                // 获取包头开始的index
-                beginReader = buffer.readerIndex();
-                // 标记包头开始的index
-                buffer.markReaderIndex();
-                // 读到了协议的开始标志，结束while循环
-                short num = buffer.readShort();
-                if (num == NettyConstant.HEAD_DATA) {
-                    break;
-                }
-
-                // 未读到包头，略过一个字节
-                // 每次略过，一个字节，去读取，包头信息的开始标记
-                buffer.resetReaderIndex();
-                buffer.readByte();
-
-                // 当略过，一个字节之后，
-                // 数据包的长度，又变得不满足
-                // 此时，应该结束。等待后面的数据到达
-                if (buffer.readableBytes() < BASE_LENGTH) {
-                    return;
-                }
-            }
-
-            // 消息的长度
-            int length = buffer.readShort();
-            // 判断请求数据包数据是否到齐
-            if (buffer.readableBytes() < length - 2) {
-                // 还原读指针
-                buffer.readerIndex(beginReader);
-                return;
-            }
-
-            // 读取data数据
-            byte[] data = new byte[length - 2];
-            buffer.readBytes(data);
-
-            GlassesProtocol protocol = new GlassesProtocol((short) length, data);
-            if (!checkSum(protocol)) {
-                log.error("校验和不通过");
-                return;
-            }
-            out.add(protocol);
+        // 消息的长度
+        int length = buffer.readableBytes();
+        if(length <2){
+            return;
         }
+        byte[] bytes = new byte[buffer.readableBytes()];
+        buffer.readBytes(bytes);
+        String dataStr = new String(bytes).trim();
+        dataStr = dataStr.substring(1, dataStr.length());
+        String[] dataArray = dataStr.split(",");
+        if(dataArray.length != 5){
+            return;
+        }
+        GlassesProtocol protocol = new GlassesProtocol(dataArray[0], dataArray[1], dataArray[2], dataArray[3],dataArray[4]);
+//        if (!checkSum(protocol)) {
+//            log.error("校验和不通过");
+//            return;
+//        }
+        out.add(protocol);
     }
 
     /**
@@ -104,22 +67,7 @@ public class ProtocolDecoder extends ByteToMessageDecoder {
      * @return 是否通过
      */
     protected boolean checkSum(GlassesProtocol protocol) {
-        int contentLength = protocol.getContent().length;
 
-        //终端传递的校验和
-        int receivedSum = ByteArrayUtils.byte2int2(Arrays.copyOfRange(protocol.getContent(), contentLength - BASE_LENGTH, contentLength));
-
-        //计算校验和
-        ByteBuf buf = Unpooled.buffer(BASE_LENGTH + protocol.getContent().length);
-        buf.writeShort(protocol.getStx());
-        buf.writeShort(protocol.getLength());
-        buf.writeBytes(Arrays.copyOfRange(protocol.getContent(), 0, contentLength - BASE_LENGTH));
-        List<Integer> byteList = new ArrayList<>();
-        for (byte value : buf.array()) {
-            byteList.add((value & 0xff));
-        }
-
-        int calculateSum = byteList.stream().mapToInt(ele -> ele).sum();
-        return receivedSum == calculateSum;
+        return true;
     }
 }
