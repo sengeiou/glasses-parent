@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dili.glasses.dao.DeviceLongShortNumMapMapper">
+  <resultMap id="BaseResultMap" type="com.dili.glasses.domain.entity.DeviceLongShortNumMap">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="delete_flag" jdbcType="TINYINT" property="deleteFlag" />
+    <result column="long_num" jdbcType="VARCHAR" property="longNum" />
+    <result column="short_num" jdbcType="INTEGER" property="shortNum" />
+    <result column="create_record_id" jdbcType="BIGINT" property="createRecordId" />
+    <result column="batch" jdbcType="VARCHAR" property="batch" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, create_time, modify_time, delete_flag, long_num, short_num, create_record_id, 
+    batch
+  </sql>
+  <select id="selectBy" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from device_long_short_num_map
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <update id="updateBy" parameterType="com.dili.glasses.domain.entity.DeviceLongShortNumMap">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update device_long_short_num_map
+    <set>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag,jdbcType=TINYINT},
+      </if>
+      <if test="longNum != null">
+        long_num = #{longNum,jdbcType=VARCHAR},
+      </if>
+      <if test="shortNum != null">
+        short_num = #{shortNum,jdbcType=INTEGER},
+      </if>
+      <if test="createRecordId != null">
+        create_record_id = #{createRecordId,jdbcType=BIGINT},
+      </if>
+      <if test="batch != null">
+        batch = #{batch,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

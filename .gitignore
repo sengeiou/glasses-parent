@@ -1,0 +1,6 @@
+.idea/
+*/target/
+client/client.iml
+*.log
+*-templates
+*.iml

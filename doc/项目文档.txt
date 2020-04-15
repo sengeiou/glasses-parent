@@ -1,0 +1,27 @@
+#### redis连接信息
+内网连接地址：r-wz9pjrgdq8hftn81fw.redis.rds.aliyuncs.com
+内网密码:Q4CEenYyk4FUvkxQ3phRdmAeDasc6GAZ
+外网地址：47.112.26.231
+端口号：6379
+账号：r-wz9pjrgdq8hftn81fw
+密码：Q4CEenYyk4FUvkxQ3phRdmAeDasc6GAZ
+
+开发环境地址:39.108.160.243
+
+## Mysql
+外网连接地址：rm-wz92t2rv541cjyn3b2o.mysql.rds.aliyuncs.com
+内网连接地址：rm-wz92t2rv541cjyn3b.mysql.rds.aliyuncs.com
+
+socket使用rds数据库
+账号：socket_rds
+密码：BRQFeqJMhaXKansVJ3ELSzMrpHj6Fpgf
+
+#RabbitmQ
+地址：47.112.26.231
+端口：5672
+virtual-host：socket
+账号: socket
+密码：09vGWJMdjRn0h8CtwSbg4QZkQwvFG4z9
+web管理地址：http://47.112.26.231:15672
+
+开发环境地址:39.108.160.243

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dili.glasses.dao.TerminalMapper">
+  <resultMap id="BaseResultMap" type="com.dili.glasses.domain.entity.Terminal">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="terminal_id" jdbcType="INTEGER" property="terminalId" />
+    <result column="hardware_version" jdbcType="INTEGER" property="hardwareVersion" />
+    <result column="software_version" jdbcType="INTEGER" property="softwareVersion" />
+    <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <result column="online" jdbcType="TINYINT" property="online" />
+    <result column="last_offline_time" jdbcType="TIMESTAMP" property="lastOfflineTime" />
+    <result column="active" jdbcType="TINYINT" property="active" />
+    <result column="active_time" jdbcType="TIMESTAMP" property="activeTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="delete_flag" jdbcType="TINYINT" property="deleteFlag" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="long_num" jdbcType="VARCHAR" property="longNum" />
+    <result column="batch" jdbcType="VARCHAR" property="batch" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, terminal_id, hardware_version, software_version, last_login_time, online, last_offline_time, 
+    active, active_time, create_time, delete_flag, modify_time, long_num, batch
+  </sql>
+  <select id="selectBy" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from terminal
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <update id="updateBy" parameterType="com.dili.glasses.domain.entity.Terminal">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update terminal
+    <set>
+      <if test="terminalId != null">
+        terminal_id = #{terminalId,jdbcType=INTEGER},
+      </if>
+      <if test="hardwareVersion != null">
+        hardware_version = #{hardwareVersion,jdbcType=INTEGER},
+      </if>
+      <if test="softwareVersion != null">
+        software_version = #{softwareVersion,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="online != null">
+        online = #{online,jdbcType=TINYINT},
+      </if>
+      <if test="lastOfflineTime != null">
+        last_offline_time = #{lastOfflineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="active != null">
+        active = #{active,jdbcType=TINYINT},
+      </if>
+      <if test="activeTime != null">
+        active_time = #{activeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag,jdbcType=TINYINT},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="longNum != null">
+        long_num = #{longNum,jdbcType=VARCHAR},
+      </if>
+      <if test="batch != null">
+        batch = #{batch,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

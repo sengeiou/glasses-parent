@@ -1,0 +1,63 @@
+<#body>
+<div class="easyui-layout" fit="true">
+    <div region="north" height="70" align="center" >
+        <form id="form" class="easyui-form" method="post" fit="true">
+            <table width="100%" style="height: 50px">
+                <tr>
+                    <td width="70%">
+                        <input class="easyui-textbox" name="cmd" id="cmd" style="width:100%" labelAlign="right"
+                               data-options="label:'命令JSON:'"/>
+                    </td>
+                    <td width="30%">
+                        <a href="#" class="easyui-linkbutton" iconCls="icon-play" id="execBtn"
+                           onclick="exec('exec')">上报命令</a>&nbsp;&nbsp;
+                        <a href="#" class="easyui-linkbutton" iconCls="icon-play" id="sendBtn"
+                           onclick="exec('send')">发送MQ</a>&nbsp;&nbsp;
+                        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-clear"
+                           onclick="clearForm()">清除</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div region="center" style="width:100%;margin-top: 3px;" height="auto" >
+        <input class="easyui-textbox" multiline="true" name="result" id="result" style="width:100%;height:200px" labelAlign="right" data-options="label:'结果:'" />
+    </div>
+</div>
+
+<!-- ====================================================================================================================== -->
+<!-- style & script 分隔线 -->
+<!-- ====================================================================================================================== -->
+<script type="text/javascript">
+    function exec(action){
+        if(!$('#form').form("validate")){
+            return;
+        }
+        var url;
+        if(action == 'exec'){
+            url = "${contextPath}/index/exec.action";
+        }else{
+            url = "${contextPath}/index/send.action"
+        }
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: $("#form").serializeObject(),
+            processData:true,
+            dataType: "json",
+            async : true,
+            success: function (output) {
+                if(output.code=="200"){
+                    $("#result").textbox("setValue", output.message);
+                }else{
+                    swal('错误',output.message, 'error');
+                }
+            },
+            error: function(){
+                swal('错误', '远程访问失败', 'error');
+            }
+        });
+    }
+</script>
+</#body>

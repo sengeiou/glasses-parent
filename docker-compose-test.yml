@@ -1,0 +1,40 @@
+version: '3'
+services:
+  registry:
+    container_name: registry
+    image: socket/registry
+    restart: "always"
+    build:
+      context: ./registry
+      dockerfile: RegistryDockerFile
+    environment:
+      JAVA_OPTS: "-XX:MaxRAM=1024m -XX:+UseG1GC"
+      SPRING_PROFILES_ACTIVE: dev
+    networks:
+      - custom_net
+    ports:
+      - "12120:12120"
+      - "12121:12121"
+    volumes:
+      - /logs/registry:/logs
+  server:
+    container_name: server
+    image: socket/server
+    restart: "always"
+    build:
+      context: ./server
+      dockerfile: ServerDockerFile
+    environment:
+      JAVA_OPTS: "-XX:MaxRAM=2048m -XX:+UseG1GC"
+      SPRING_PROFILES_ACTIVE: dev
+    networks:
+      - custom_net
+    ports:
+      - "12122:12122"
+    volumes:
+      - /logs/server:/logs
+
+networks:
+  custom_net:
+    external:
+      name: socket_net

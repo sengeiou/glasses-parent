@@ -1,0 +1,259 @@
+
+.icon-blank{
+    background:url('icons/blank.gif') no-repeat center center;
+}
+.icon-add{
+    background:url('icons/edit_add.png') no-repeat center center;
+}
+.l-btn:hover .icon-add{
+    background:url('icons/edit_add-on.png') no-repeat center center;
+}
+.icon-edit{
+    background:url('icons/pencil.png') no-repeat center center;
+}
+.l-btn:hover .icon-edit{
+    background:url('icons/pencil-on.png') no-repeat center center;
+}
+.icon-clear{
+    background:url('icons/clear.png') no-repeat center center;
+}
+.l-btn:hover .icon-clear{
+    background:url('icons/clear-on.png') no-repeat center center;
+}
+.icon-remove{
+    background:url('icons/edit_remove.png') no-repeat center center;
+}
+.l-btn:hover .icon-remove{
+    background:url('icons/edit_remove-on.png') no-repeat center center;
+}
+.icon-save{
+    background:url('icons/filesave.png') no-repeat center center;
+}
+.l-btn:hover .icon-save{
+    background:url('icons/filesave-on.png') no-repeat center center;
+}
+.icon-cut{
+    background:url('icons/cut.png') no-repeat center center;
+}
+.l-btn:hover .icon-cut{
+    background:url('icons/cut-on.png') no-repeat center center;
+}
+.icon-ok{
+    background:url('icons/ok.png') no-repeat center center;
+}
+.l-btn:hover .icon-ok{
+    background:url('icons/ok-on.png') no-repeat center center;
+}
+.icon-no{
+    background:url('icons/no.png') no-repeat center center;
+}
+.icon-cancel{
+    background:url('icons/cancel.png') no-repeat center center;
+}
+.icon-reload{
+    background:url('icons/reload.png') no-repeat center center;
+}
+.l-btn:hover .icon-reload{
+    background:url('icons/reload-on.png') no-repeat center center;
+}
+.icon-search{
+    background:url('icons/search.png') no-repeat center center;
+}
+.l-btn:hover .icon-search{
+    background:url('icons/search-on.png') no-repeat center center;
+}
+.icon-print{
+    background:url('icons/print.png') no-repeat center center;
+}
+.l-btn:hover .icon-print{
+    background:url('icons/print-on.png') no-repeat center center;
+}
+.icon-help{
+    background:url('icons/help.png') no-repeat center center;
+}
+.icon-undo{
+    background:url('icons/undo.png') no-repeat center center;
+}
+.l-btn:hover .icon-undo{
+    background:url('icons/undo-on.png') no-repeat center center;
+}
+.icon-redo{
+    background:url('icons/redo.png') no-repeat center center;
+}
+.l-btn:hover .icon-redo{
+    background:url('icons/redo-on.png') no-repeat center center;
+}
+.icon-back{
+    background:url('icons/back.png') no-repeat center center;
+}
+.l-btn:hover .icon-back{
+    background:url('icons/back-on.png') no-repeat center center;
+}
+.icon-sum{
+    background:url('icons/sum.png') no-repeat center center;
+}
+.icon-tip{
+    background:url('icons/tip.png') no-repeat center center;
+}
+.l-btn:hover .icon-tip{
+    background:url('icons/tip-on.png') no-repeat center center;
+}
+.icon-filter{
+    background:url('icons/filter.png') no-repeat center center;
+}
+.l-btn:hover .icon-filter{
+    background:url('icons/filter-on.png') no-repeat center center;
+}
+.icon-man{
+    background:url('icons/man.png') no-repeat center center;
+}
+.l-btn:hover .icon-man{
+    background:url('icons/man-on.png') no-repeat center center;
+}
+.icon-lock{
+    background:url('icons/lock.png') no-repeat center center;
+}
+.l-btn:hover .icon-lock{
+    background:url('icons/lock-on.png') no-repeat center center;
+}
+.icon-more{
+    background:url('icons/more.png') no-repeat center center;
+}
+
+
+.icon-mini-add{
+    background:url('icons/mini_add.png') no-repeat center center;
+}
+.icon-mini-edit{
+    background:url('icons/mini_edit.png') no-repeat center center;
+}
+.icon-mini-refresh{
+    background:url('icons/mini_refresh.png') no-repeat center center;
+}
+
+.icon-large-picture{
+    background:url('icons/large_picture.png') no-repeat center center;
+}
+.icon-large-clipart{
+    background:url('icons/large_clipart.png') no-repeat center center;
+}
+.icon-large-shapes{
+    background:url('icons/large_shapes.png') no-repeat center center;
+}
+.icon-large-smartart{
+    background:url('icons/large_smartart.png') no-repeat center center;
+}
+.icon-large-chart{
+    background:url('icons/large_chart.png') no-repeat center center;
+}
+
+/* 自定义样式 */
+.icon-export{
+    background:url('icons/export.png')  no-repeat center center;
+}
+.l-btn:hover .icon-export{
+    background:url('icons/export-on.png') no-repeat center center;
+}
+.icon-add-child{
+    background:url('icons/edit_add_child.png') no-repeat center center;
+}
+.l-btn:hover .icon-add-child{
+    background:url('icons/edit_add_child-on.png') no-repeat center center;
+}
+
+.icon-detail{
+    background:url('icons/detail.png') no-repeat center center;
+}
+.l-btn:hover .icon-detail{
+    background:url('icons/detail-on.png') no-repeat center center;
+}
+
+.icon-play{
+    background:url('icons/icon-play.png') no-repeat center center;
+}
+.l-btn:hover .icon-play{
+    background:url('icons/icon-play-on.png') no-repeat center center;
+}
+
+.icon-stop{
+    background:url('icons/stop.png') no-repeat center center;
+}
+.l-btn:hover .icon-stop{
+    background:url('icons/stop-on.png') no-repeat center center;
+}
+
+.icon-role{
+    background:url('icons/role.png') no-repeat center center;
+}
+.l-btn:hover .icon-role{
+    background:url('icons/role-on.png') no-repeat center center;
+}
+
+.icon-reset{
+    background:url('icons/reset.png') no-repeat center center;
+}
+.l-btn:hover .icon-reset{
+    background:url('icons/reset-on.png') no-repeat center center;
+}
+
+.icon-data{
+    background:url('icons/data.png') no-repeat center center;
+}
+.l-btn:hover .icon-data{
+    background:url('icons/data-on.png') no-repeat center center;
+}
+
+.icon-unlock{
+    background:url('icons/unlock.png') no-repeat center center;
+}
+.l-btn:hover .icon-unlock{
+    background:url('icons/unlock-on.png') no-repeat center center;
+}
+
+.icon-map{
+    background:url('icons/map.png') no-repeat center center;
+}
+.l-btn:hover .icon-map{
+    background:url('icons/map-on.png') no-repeat center center;
+}
+
+.icon-top{
+    background:url('icons/top.png') no-repeat center center;
+}
+.l-btn:hover .icon-top{
+    background:url('icons/top-on.png') no-repeat center center;
+}
+
+.icon-copy{
+    background:url('icons/copy.png') no-repeat center center;
+}
+.l-btn:hover .icon-copy{
+    background:url('icons/copy-on.png') no-repeat center center;
+}
+
+.icon-down{
+    background:url('icons/down.png') no-repeat center center;
+}
+.l-btn:hover .icon-down{
+    background:url('icons/down-on.png') no-repeat center center;
+}
+
+.icon-up{
+    background:url('icons/up.png') no-repeat center center;
+}
+.l-btn:hover .icon-up{
+    background:url('icons/up-on.png') no-repeat center center;
+}
+
+.icon-pos{
+    background:url('icons/pos-icon.png') no-repeat center center;
+}
+/* 地图图标 */
+.icon-map{
+    background:url('icons/map.png') no-repeat center center;
+}
+
+.icon-blank{
+    background:url('icons/blank.png') no-repeat center center;
+}
+

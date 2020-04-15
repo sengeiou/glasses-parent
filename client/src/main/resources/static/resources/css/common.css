@@ -1,0 +1,571 @@
+/* easyui基础字体设置 */
+
+/* easyui.css start */
+.panel-tool a:hover {
+    background-color: #3370ff;
+}
+.panel-footer {
+    background: #fff;
+}
+.dialog-toolbar,
+.dialog-button {
+    background: #fff;
+}
+.window-thinborder .dialog-toolbar {
+    border-top-color: #fff;
+}
+.l-btn:hover {
+    background: #3370ff;
+    color: #fff;
+}
+.l-btn-plain:hover {
+    background: #3370ff;
+    color: #fff;
+}
+.l-btn-focus {
+    outline: #3370ff dotted thin;
+}
+.combo-arrow-hover {
+    background-color: #3370ff;
+}
+.combobox-item-hover {
+    background-color: #f0f3f6;
+    color: #333;
+}
+.combo-arrow:hover {
+    /*background: transparent;*/
+    /*background-color: #3370ff; *!*/
+}
+.combobox-item-selected {
+    background-color: #3370ff;
+    color: #fff;
+}
+.tagbox-label {
+    background: #3370ff;
+    color: #fff;
+}
+.tabs li a.tabs-inner:hover {
+    background: #3370ff;
+    color: #fff;
+}
+.tabs-p-tool a:hover,
+.tabs li a:hover.tabs-close,
+.tabs-scroller-over {
+    background-color: #3370ff;
+}
+.tabs li a.tabs-inner {
+    color: #3370ff;
+}
+.tabs li a.tabs-inner:hover {
+    background: #e6e6e6;
+}
+.tabs-header .tabs-pill li.tabs-selected a.tabs-inner {
+    background: #3370ff;
+    border-color: #ddd;
+}
+
+.datagrid-header,
+.datagrid-td-rownumber {
+    background-color: #fff;
+    background: -webkit-linear-gradient(top,#fff 0,#fff 100%);
+    background: -moz-linear-gradient(top,#fff 0,#fff 100%);
+    background: -o-linear-gradient(top,#fff 0,#fff 100%);
+    background: linear-gradient(to bottom,#fff 0,#fff 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#fff,endColorstr=#fff,GradientType=0);
+}
+.datagrid-toolbar {
+    background: #fff;
+    border: 1px solid #D4D4D4;
+}
+.datagrid-row-over,
+.datagrid-header td.datagrid-header-over {
+    background: #3370ff;
+    color: #fff;
+}
+.datalist .datagrid-group,
+.m-list .m-list-group {
+    background-color: #fff;
+}
+.m-list li>a:hover {
+    background: #3370ff;
+    color: #fff;
+}
+.pagination-page-list,
+.pagination .pagination-num {
+    border-color: #d4d4d4;
+}
+.calendar-menu-year {
+    border-color: #d4d4d4;
+}
+.calendar {
+    border-color: #d4d4d4;
+}
+.calendar-body th {
+    background: #fff;
+}
+.calendar-hover,
+.calendar-nav-hover,
+.calendar-menu-hover {
+    background-color: #3370ff;
+    color: #fff;
+}
+.datebox-button {
+    background-color: #fff;
+}
+.spinner-arrow-hover {
+    background-color: #3370ff;
+}
+.spinner-button-top:hover,
+.spinner-button-bottom:hover,
+.spinner-button-left:hover,
+.spinner-button-right:hover,
+.spinner-arrow-up:hover,
+.spinner-arrow-down:hover {
+    background-color: #3370ff;
+}
+.progressbar {
+    border-color: #d4d4d4;
+}
+.slider-inner {
+    border-color: #d4d4d4;
+    background: #F2F2F2;
+}
+.slider-rule span {
+    border-color: #d4d4d4;
+}
+.menu-active {
+    color: #fff;
+    background: #3370ff;
+    border-color: #3370ff;
+}
+.m-btn-active,
+.s-btn-active {
+    background: #3370ff;
+    color: #fff;
+}
+.m-btn-plain-active,
+.s-btn-plain-active {
+    border-color: #ddd;
+    background-color: #3370ff;
+    color: #fff;
+}
+.messager-body .messager-input {
+    border: 1px solid #d4d4d4;
+}
+.tree-editor {
+    border: 1px solid #d4d4d4;
+}
+.tree-node-proxy {
+    border-color: #d4d4d4;
+}
+.tree-node-hover {
+    background: #3370ff;
+    color: #fff;
+}
+/*sidemenu*/
+.accordion{
+    border: 0px;
+}
+.sidemenu .accordion-header:hover {
+    background: #3370ff;
+    color:#FFF
+}
+.sidemenu .tree-node-hover {
+    background: #3370ff;
+    color:#FFF
+}
+.sidemenu .accordion-header .panel-title:hover{
+    height: 30px;
+    line-height: 30px;
+    color: #FFF;
+}
+/* 二级sidemenu菜单间隔*/
+.tree-hit,.tree-indent{
+    display: inline-block;
+    height: 18px;
+    width: 20px;
+    margin: 4px 0;
+    vertical-align: middle;
+    overflow: hidden;
+}
+/* 一级sidemenu菜单字体颜色*/
+.sidemenu .accordion-header .panel-title{
+    color: #112;
+}
+
+/*日历*/
+.calendar-selected {
+    background-color: #3370ff;
+    border: 1px solid #3370ff;
+}
+
+.accordion .accordion-header-selected {
+    background: #3370ff;
+}
+
+
+.progressbar-value,
+.progressbar-value .progressbar-text {
+    background-color: #3370ff;
+}
+.tree-node-selected {
+    background: #3370ff;
+}
+.switchbutton-on {
+    background: #3370ff;
+}
+.radiobutton {
+    border: 2px solid #3370ff;
+}
+.radiobutton-inner {
+    background: #3370ff;
+}
+.checkbox {
+    border: 2px solid #3370ff;
+}
+.checkbox-checked {
+    background: #3370ff;
+}
+.sidemenu .tree-node-selected {
+    border-right: 2px solid #3370ff;
+    background: #3370ff;
+}
+
+/*  -----------表格 start------  */
+
+/*表格边框*/
+.datagrid-header td, .datagrid-body td, .datagrid-footer td {
+    border-style: solid;
+    /*border-color: transparent;*/
+    border-color: #ebeef5;
+}
+
+/*表格表头列*/
+.datagrid-header td{
+    border-style: none;
+}
+/*更改表格表头标题文字大小*/
+.datagrid-header span {
+    font-size: 15px !important;
+    font-weight: 700;
+}
+.datagrid-header-row {
+    height: 42px;
+}
+/*更改表格标题的行间距*/
+.panel-title {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    color: inherit;
+    font-size: 15px;
+}
+
+/*表格行斑马纹*/
+.datagrid-row-alt {
+    background: #f4f6f8;
+}
+/*表格选中行*/
+.datagrid-row-selected {
+    background: #cad8f8;
+    color: #666;
+}
+/*表格hover*/
+.datagrid-row-over,
+.datagrid-header td.datagrid-header-over {
+    background: #e1e8ef;
+    color: #333;
+}
+/*表格行高*/
+.datagrid-row {
+    height: 42px;
+}
+
+/*更改表格中单元格行间距*/
+#table .datagrid-btable tr{height: 60px;}
+
+/*  -----------表格 end ------  */
+
+
+/*输入框*/
+.textbox .textbox-text {
+    vertical-align: middle;
+}
+
+
+/* datagrid checkbox列的样式*/
+.datagrid-header-check, .datagrid-cell-check {
+    padding: 3px;
+    width: 30px;
+    height: 18px;
+    font-size: 1px;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+.l-btn-text,
+.panel-body {
+    font-size: 14px;
+}
+
+/*表格菜单行分页条字体*/
+.pagination-info{
+    font-size: 14px;
+}
+/*更改datagrid中的数据*/
+.datagrid-cell{
+    font-size: 14px;
+}
+.panel-header {
+    background: #fff;
+}
+
+/*更改treegrid的递归列*/
+.tree-title{
+    font-size: 14px;
+}
+/*textbox的label字体*/
+.textbox-label{
+    font-size: 14px;
+}
+/*按钮字体*/
+.l-btn-text{
+    font-size: 14px;
+}
+/*菜单字体*/
+.menu-text{
+    font-size: 14px;
+}
+/*tab字体*/
+.tabs-title{
+    font-size: 14px;
+}
+/*表头字体*/
+.pagination span {
+    font-size: 14px;
+}
+/*表格字体*/
+.datagrid-cell, .datagrid-cell-group, .datagrid-header-rownumber, .datagrid-cell-rownumber {
+    font-size: 14px;
+}
+
+/*表格斑马纹横向*/
+.table-stripe-hr {
+    width: 100%;
+    border-top: 1px solid  #e6e6e6;
+    border-left: 1px solid  #e6e6e6;
+
+}
+.table-stripe-hr td {
+    line-height: 46px;
+    text-align: center;
+    border-right: 1px solid  #e6e6e6;
+    border-bottom: 1px solid  #e6e6e6;
+
+}
+.table-stripe-hr td:nth-child(odd) {
+    background: #F5F5F5;
+}
+
+/*表格斑马纹纵向*/
+.table-stripe-vt {
+    width: 100%;
+    border-top: 1px solid  #e6e6e6;
+    border-left: 1px solid  #e6e6e6;
+
+}
+.table-stripe-vt td {
+    line-height: 46px;
+    text-align: center;
+    border-right: 1px solid  #e6e6e6;
+    border-bottom: 1px solid  #e6e6e6;
+
+}
+.table-stripe-vt tr:nth-child(odd) td {
+    background: #F5F5F5;
+    font-weight: 700;
+}
+
+/*   easyui.css end    */
+
+/*base*/
+body {
+    font-family:"Microsoft YaHei","Helvetica", "Tahoma", "Arial", "STXihei", "SimSun", "sans-serif";
+    font-size: 14px;
+    padding:15px;
+    margin:0;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 15px;
+}
+.red {
+    color: #f00;
+}
+.fz18 {
+    font-size: 18px;
+}
+.bold {
+    font-weight: 700;
+}
+
+.foncolor-theme {
+    color: #3370ff;
+}
+.bgcolor-theme {
+    background: #3370ff;
+    color: #fff;
+}
+.bgcolor-gray {
+    background: #F5F5F5;
+}
+
+.demo-info{
+    padding:0 0 12px 0;
+}
+.demo-tip{
+    display:none;
+}
+.label-top{
+    display: block;
+    height: 22px;
+    line-height: 22px;
+    vertical-align: middle;
+}
+/* datagrid row border st */
+.lines-both .datagrid-body td{
+}
+.lines-no .datagrid-body td{
+    border-right:1px dotted transparent;
+    border-bottom:1px dotted transparent;
+}
+.lines-right .datagrid-body td{
+    border-bottom:1px dotted transparent;
+}
+.lines-bottom .datagrid-body td{
+    border-right:1px dotted transparent;
+}
+
+/* datagrid row border end */
+
+/* 无边框文本框 */
+.noborder{
+    border:none;
+}
+
+/*上传图片*/
+.fileimg-box {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    padding-top: 20px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+.fileimg-box .fileimg-plus-icon {
+    display: inline-block;
+    width: 100%;
+    font-size: 40px;
+    font-weight: 700;
+}
+.fileimg-box .magnifying,
+.fileimg-box [type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    z-index: 2;
+}
+.fileimg-box [type="file"] {
+    opacity: 0;
+    z-index: 3;
+}
+.fileimg-box .fileimg-cover,
+.fileimg-box .fileimg-edit {
+    display: none;
+}
+.fileimg-box:hover .fileimg-cover {
+    position: absolute;
+    bottom: 0;
+    z-index: 4;
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    background: #000;
+    opacity: .5;
+}
+.fileimg-box:hover .fileimg-edit {
+    position: absolute;
+    bottom: 0;
+    z-index: 8;
+    display: block;
+    width: 100%;
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+}
+.fileimg-box .fileimg-edit span {
+    cursor: pointer;
+}
+
+
+/*顶部标题*/
+.main-title-top-box {
+    position: fixed;
+    top: 30px;
+    z-index: 99;
+    width: 100%;
+    padding-top: 20px;
+    background: #fff;
+}
+.main-title-info {
+    height: 40px;
+    padding-left: 10px;
+    background: #F5F5F5;
+}
+.main-title-top {
+    margin: 0;
+    line-height: 40px;
+    font-size: 15px;
+}
+.main-back-top {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+}
+
+/*查询条件*/
+.search-wrap {
+    padding: 20px 10px;
+}
+.search-wrap .search-item {
+    display: inline-block;
+    width: 240px;
+    padding: 8px 0;
+}
+.search-wrap .search-item.long-item {
+    width: 485px;
+}
+.search-wrap .textbox-label {
+    width: 96px;
+}
+.search-wrap-btn {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+
+
+
+
+
+
+
+
