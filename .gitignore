@@ -1,6 +1,5 @@
 .idea/
 */target/
-client/client.iml
 *.log
-*-templates
 *.iml
+.DS_Store
