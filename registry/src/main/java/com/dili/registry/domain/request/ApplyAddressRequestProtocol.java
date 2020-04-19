@@ -1,6 +1,6 @@
 package com.dili.registry.domain.request;
 
-import com.dili.registry.domain.AbstractProtocol;
+import com.dili.registry.domain.BaseProtocol;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,12 +11,18 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class ApplyAddressRequestProtocol extends AbstractProtocol {
+public class ApplyAddressRequestProtocol extends BaseRequestProtocol {
+
+    /**
+     * 流水号
+     */
+    private String serialNumber;
 
     @Override
-    public void parseDatas() {
-        if (getDatas().length > 0) {
-            //TODO
-        }
+    public void parseDatas(BaseProtocol baseProtocol) {
+        String[] datas = baseProtocol.getDatas();
+        setLength(datas[0]);
+        setSerialNumber(datas[1]);
     }
+
 }

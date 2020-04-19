@@ -1,13 +1,7 @@
 package com.dili.registry.domain.response;
 
-import com.dili.registry.domain.AbstractProtocol;
-import com.dili.ss.util.ByteArrayUtils;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.Arrays;
 
 /**
  * 申请Server地址传输协议
@@ -16,11 +10,27 @@ import java.util.Arrays;
  */
 @Getter
 @Setter
-public class ApplyAddressResponseProtocol extends AbstractProtocol {
+public class ApplyAddressResponseProtocol extends BaseResponseProtocol {
 
+    /**
+     * 端口或域名
+     */
+    private String host;
+
+    /**
+     * 端口
+     */
+    private String port;
 
     @Override
-    public void parseDatas() {
-
+    public String encodeDatas() {
+        StringBuilder sb = new StringBuilder("[");
+        sb.append(getType()).append(",")
+                .append(getImei()).append(",")
+                .append(getLength()).append(",")
+                .append(getHost()).append(",")
+                .append(getPort()).append(",")
+                .append(getCrc()).append("]");
+        return sb.toString();
     }
 }

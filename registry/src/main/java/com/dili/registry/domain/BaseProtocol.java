@@ -8,7 +8,7 @@ import lombok.Data;
  * @author wangmi
  */
 @Data
-public abstract class AbstractProtocol {
+public class BaseProtocol {
     /**
      * 命令类型
      */
@@ -34,8 +34,4 @@ public abstract class AbstractProtocol {
      */
     private String[] datas;
 
-    /**
-     * 内省解析数据域
-     */
-    public abstract void parseDatas();
 }

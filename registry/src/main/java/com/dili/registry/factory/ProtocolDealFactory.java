@@ -1,7 +1,8 @@
 package com.dili.registry.factory;
 
 
-import com.dili.registry.domain.AbstractProtocol;
+import com.dili.registry.domain.BaseProtocol;
+import com.dili.registry.domain.request.BaseRequestProtocol;
 import com.dili.registry.factory.strategy.ProtocolExecStrategy;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +26,7 @@ public class ProtocolDealFactory {
     /**
      * 保存命令对应的执行策略
      */
-    private static final Map<String, ProtocolExecStrategy> CACHE = new HashMap<>();
+    private static final Map<String, ProtocolExecStrategy> STRATEGY_CACHE = new HashMap<>();
 
     @Autowired
     private List<ProtocolExecStrategy> protocolExecStrategies;
@@ -33,17 +34,16 @@ public class ProtocolDealFactory {
     @PostConstruct
     public void initMethod() {
         for (ProtocolExecStrategy protocolExecStrategy : protocolExecStrategies) {
-            CACHE.put(protocolExecStrategy.getType(), protocolExecStrategy);
+            STRATEGY_CACHE.put(protocolExecStrategy.getType(), protocolExecStrategy);
         }
     }
 
 
     @SuppressWarnings("unchecked")
-    public void exec(ChannelHandlerContext ctx, AbstractProtocol protocol) {
-        if (CACHE.containsKey(protocol.getType())) {
+    public void exec(ChannelHandlerContext ctx, BaseProtocol protocol) {
+        if (STRATEGY_CACHE.containsKey(protocol.getType())) {
             try {
-                ProtocolExecStrategy strategy = CACHE.get(protocol.getType());
-                protocol.parseDatas();
+                ProtocolExecStrategy strategy = STRATEGY_CACHE.get(protocol.getType());
                 strategy.exec(ctx, protocol);
             } catch (Exception e) {
                 log.error("设备端请求协议解析失败：{}", e);

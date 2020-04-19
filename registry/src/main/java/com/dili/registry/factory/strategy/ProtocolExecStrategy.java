@@ -1,6 +1,6 @@
 package com.dili.registry.factory.strategy;
 
-import com.dili.registry.domain.AbstractProtocol;
+import com.dili.registry.domain.BaseProtocol;
 import io.netty.channel.ChannelHandlerContext;
 
 /**
@@ -8,7 +8,7 @@ import io.netty.channel.ChannelHandlerContext;
  * @date 2019-09-02 19:25
  * @description 协议解析, 执行 策略
  **/
-public interface ProtocolExecStrategy<T extends AbstractProtocol> {
+public interface ProtocolExecStrategy<T extends BaseProtocol> {
 
     /**
      * 协议解析执行

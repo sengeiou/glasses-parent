@@ -1,6 +1,7 @@
 package com.dili.registry.handler;
 
-import com.dili.registry.domain.GlassesProtocol;
+import com.dili.registry.domain.BaseProtocol;
+import com.dili.registry.factory.ProtocolDealFactory;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
@@ -24,8 +25,7 @@ public class RegistryTerminalHandler extends ChannelHandlerAdapter {
     private final static Logger LOGGER = LoggerFactory.getLogger(RegistryTerminalHandler.class);
 
     @Autowired
-    public RegistryTerminalHandler() {
-    }
+    ProtocolDealFactory protocolDealFactory;
 
     /**
      * 取消绑定
@@ -85,6 +85,6 @@ public class RegistryTerminalHandler extends ChannelHandlerAdapter {
         //当有多个客户端连上来时，服务端需要区分开，不然响应消息就会发生混乱。
         //所以每当有个连接上来的时候，我们都将当前的 Channel 与连上的客户端 ID 进行关联（因此每个连上的客户端 ID 都必须唯一）。
         //这里采用了一个 Map 来保存这个关系，并且在断开连接时自动取消这个关联。
-//        protocolDealFactory.exec(channelHandlerContext, (GlassesProtocol) cmd);
+        protocolDealFactory.exec(channelHandlerContext, (BaseProtocol) cmd);
     }
 }

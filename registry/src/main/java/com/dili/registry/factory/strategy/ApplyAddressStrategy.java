@@ -2,6 +2,7 @@ package com.dili.registry.factory.strategy;
 
 import com.dili.registry.boot.RegistryNettyConfig;
 import com.dili.registry.consts.NettyConstant;
+import com.dili.registry.domain.BaseProtocol;
 import com.dili.registry.domain.request.ApplyAddressRequestProtocol;
 import com.dili.registry.domain.response.ApplyAddressResponseProtocol;
 import com.dili.ss.util.ByteArrayUtils;
@@ -22,7 +23,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  **/
 @Service
 @Slf4j
-public class ApplyAddressStrategy implements ProtocolExecStrategy<ApplyAddressRequestProtocol> {
+public class ApplyAddressStrategy implements ProtocolExecStrategy<BaseProtocol> {
 
     private final RegistryNettyConfig registryNettyConfig;
 
@@ -32,12 +33,14 @@ public class ApplyAddressStrategy implements ProtocolExecStrategy<ApplyAddressRe
     }
 
     @Override
-    public void exec(ChannelHandlerContext context, ApplyAddressRequestProtocol protocol) {
+    public void exec(ChannelHandlerContext context, BaseProtocol protocol) {
         //如果当前没有Server端连接，则无法分配服务端地址
         if (NettyConstant.SERVER_CACHE.isEmpty()) {
             return;
         }
+        //最小连接数的Server的连接数
         int min = 99999;
+        //最小连接数的Server的host:port
         String address = null;
         for (Map.Entry<String, AtomicInteger> entry : NettyConstant.SERVER_CACHE.entrySet()) {
             if (entry.getValue().get() < min) {
@@ -45,33 +48,19 @@ public class ApplyAddressStrategy implements ProtocolExecStrategy<ApplyAddressRe
                 address = entry.getKey();
             }
         }
-        if (address != null) {
-            NettyConstant.SERVER_CACHE.put(address, NettyConstant.SERVER_CACHE.get(address));
-            long startTime = DateUtils.formatDateStr2Date("2018-01-01 00:00:00").getTime();
-
-            int terminalTime = (int)((System.currentTimeMillis() - startTime) / 1000);
-
-            Byte[] hostPort = new Byte[6];
-            String[] splits = address.split(":");
-
-            //docker容器安装问题临时处理方案
-            if (StringUtils.isNotBlank(registryNettyConfig.getServerHost())) {
-                splits[0] = registryNettyConfig.getServerHost();
-            }
-
-            String[] hosts = splits[0].split("\\.");
-            String port = splits[1];
-            for (int i = 0; i < hosts.length; i++) {
-                hostPort[i] = (byte) Integer.parseInt(hosts[i]);
-            }
-            byte[] portBytes = ByteArrayUtils.short2bytes2(Short.parseShort(port));
-            hostPort[4] = portBytes[0];
-            hostPort[5] = portBytes[1];
-
-            ApplyAddressResponseProtocol responseProtocol = new ApplyAddressResponseProtocol();
-
-            context.writeAndFlush(responseProtocol.toString());
+        if (address == null) {
+            return;
         }
+
+        ApplyAddressRequestProtocol requestProtocol = new ApplyAddressRequestProtocol();
+        requestProtocol.parseDatas(protocol);
+        ApplyAddressResponseProtocol responseProtocol = new ApplyAddressResponseProtocol();
+        responseProtocol.setType(requestProtocol.getType());
+        responseProtocol.setImei(requestProtocol.getImei());
+        responseProtocol.setHost(address);
+        responseProtocol.setLength("");
+        responseProtocol.setPort(String.valueOf(NettyConstant.SERVER_CACHE.get(address).get()));
+        context.writeAndFlush(responseProtocol.encodeDatas());
     }
 
     @Override
